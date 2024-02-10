@@ -2,7 +2,7 @@
 FROM php:8.2-apache-bookworm
 
 # Erstellen des Benutzers unraid mit UID 99 und GID 100
-RUN groupadd -g 100 unraid && useradd -r -u 99 -g unraid unraid
+RUN addgroup --gid 100 unraid && adduser --system --uid 99 --gid 100 unraid
 
 # entrypoint.sh und cron.sh Abhängigkeiten
 RUN set -ex; \
